@@ -27,7 +27,7 @@ const handler = async (req: Request): Promise<Response> => {
   // }
 
   const payload: OpenAIStreamPayload = {
-    model: "moonshot-v1-8k",
+    model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.7,
     top_p: 1,
