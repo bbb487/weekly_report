@@ -54,7 +54,8 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
   }
   delete payload.api_key
 
-  const res = await fetch("https://api.moonshot.cn/v1/chat/completions", {
+  const BaseURL = process.env.BaseURL;
+  const res = await fetch(BaseURL, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
