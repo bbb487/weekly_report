@@ -54,8 +54,8 @@ export async function OpenAIStream(payload: OpenAIStreamPayload) {
   }
   delete payload.api_key
 
-  const BaseURL = process.env.BaseURL;
-  const res = await fetch(BaseURL, {
+  const BaseURL = process.env.BaseURL || "";
+  const res = await fetch(`${BaseURL}/v1/chat/completions`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${openai_api_key ?? ""}`,
